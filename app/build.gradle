@@ -4,6 +4,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        test {
+            storeFile file('/Users/administrator/Desktop/DATA PROJECT/PepsiApp/app/pepsiKey')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
@@ -21,6 +29,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.test
         }
     }
     compileOptions {
